@@ -9,7 +9,6 @@
 #include "gm6020.hpp"
 
 GM6020::GM6020(uint8_t id) : id_(id) {
-    // 根据协议，反馈ID = 0x204 + 电机ID 
     feedback_id_ = 0x204 + id_;
 }
 void GM6020::encode(int16_t cmd1, int16_t cmd2, int16_t cmd3, int16_t cmd4) {
@@ -26,7 +25,7 @@ void GM6020::encode(int16_t cmd1, int16_t cmd2, int16_t cmd3, int16_t cmd4) {
 
     FdcanSendMsg(&hfdcan1, tx_data, 0x1FE, 8); 
 }
-// 这个函数应该在你的CAN接收中断中被调用
+
 void GM6020::decode(uint32_t can_id, uint8_t data[8]) {
 
     if (can_id != feedback_id_) {
