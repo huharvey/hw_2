@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "cmath": "cpp",
+        "cstdint": "cpp",
+        "hw_fdcan.hpp": "c"
+    }
+}
